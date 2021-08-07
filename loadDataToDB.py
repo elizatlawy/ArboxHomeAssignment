@@ -34,7 +34,7 @@ def checkHeaders(dataFrameHeaders):
                  "membership_start_date membership_end_date or membership_name")
 
 
-# assume that we have all the necessary headers but their name may change in different exel sheets
+# assume that we have all the necessary headers in the same order but their name may change in different exel sheets
 def setHeaders(dataFrameHeaders):
     dataHeaders.FIRST_NAME = dataFrameHeaders[0]
     dataHeaders.LAST_NAME = dataFrameHeaders[1]
@@ -45,13 +45,16 @@ def setHeaders(dataFrameHeaders):
     dataHeaders.MEMBERSHIP_NAME = dataFrameHeaders[6]
 
 
+# check if there are duplicate emails in the provided exel sheet
 def checkDuplicateEmailsInData(emails):
     dupEmails = set(emails[emails.duplicated(keep=False)].tolist())
     if dupEmails:
-        sys.exit("Duplicate emails are not allowed.\nThe exel sheet contains the following duplicate emails: \n" + str(dupEmails) +
+        sys.exit("Duplicate emails are not allowed.\nThe exel sheet contains the following duplicate emails: \n" + str(
+            dupEmails) +
                  "\nPlease delete the duplications and try ""again")
 
 
+# check if the emails in the provided exel sheet already exist in the DB
 def checkDuplicateEmailsInDB(emails):
     duplicateEmailsFromDB = pr.getDuplicateEmailsFromDB(emails)
     if duplicateEmailsFromDB > 0:
