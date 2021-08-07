@@ -17,12 +17,12 @@ class user(object):
 
 
 class membership(object):
-    def __init__(self, id, user_id, start_date, end_date, membership_type):
+    def __init__(self, id, user_id, start_date, end_date, membership_name):
         self.id = id
         self.user_id = user_id
         self.start_date = start_date
         self.end_date = end_date
-        self.membership_type = membership_type
+        self.membership_name = membership_name
 
 
 # Data Access Object:
