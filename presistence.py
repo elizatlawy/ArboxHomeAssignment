@@ -25,7 +25,7 @@ class membership(object):
         self.membership_type = membership_type
 
 
-# Data Access Objects:
+# Data Access Object:
 class Dao(object):
     def __init__(self, dto_type):
         self._dto_type = dto_type
@@ -41,6 +41,14 @@ class Dao(object):
 
         query = 'INSERT INTO {}.{} ({}) VALUES ({})'.format(DB_NAME, self._table_name, column_names, params)
         print(query)
+
+
+# SQL query that returns the emails that already exist in the DB
+def getDuplicateEmailsFromDB(emails):
+    query = 'SELECT * FROM {}.users WHERE email in {}'.format(DB_NAME, tuple(emails))
+    print(query)
+    # with a real query we wold return True if the number of results form the query > 0, False otherwise
+    return 0
 
 
 # Repository
