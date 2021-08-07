@@ -6,6 +6,12 @@ import presistence as pr
 import dataHeaders
 
 
+# This is only an example for a Unique ID generator since I do not know how the
+# user id and table id's generated in the actual DB.
+def generateUniqueID():
+    return str(uuid4())
+
+
 # assume that we have all the necessary headers but their name may change in different exel sheets
 def setHeaders(dataFrameHeaders):
     dataHeaders.FIRST_NAME = dataFrameHeaders[0]
@@ -15,12 +21,6 @@ def setHeaders(dataFrameHeaders):
     dataHeaders.MEMBERSHIP_START_DATE = dataFrameHeaders[4]
     dataHeaders.MEMBERSHIP_END_DATE = dataFrameHeaders[5]
     dataHeaders.MEMBERSHIP_NAME = dataFrameHeaders[6]
-
-
-# This is only an example for a Unique ID generator since I do not know how the
-# user id and table id's generated in the actual DB.
-def generateUniqueID():
-    return str(uuid4())
 
 
 def parseArgs():
