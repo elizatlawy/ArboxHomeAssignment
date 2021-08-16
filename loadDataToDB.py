@@ -57,7 +57,7 @@ def checkDuplicateEmailsInData(emails):
 # check if the emails in the provided exel sheet already exist in the DB
 def checkDuplicateEmailsInDB(emails):
     duplicateEmailsFromDB = pr.getDuplicateEmailsFromDB(emails)
-    if duplicateEmailsFromDB > 0:
+    if duplicateEmailsFromDB:
         sys.exit("Duplicate emails are not allowed. \n The DB already contains the following emails from the exel "
                  "sheet:" + str(duplicateEmailsFromDB)
                  + " please delete the duplications and try again")

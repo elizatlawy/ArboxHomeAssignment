@@ -1,5 +1,3 @@
-import sqlite3
-import atexit
 
 DB_NAME = 'ar_db'
 
