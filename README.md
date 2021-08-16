@@ -1,6 +1,6 @@
 # Arbox Assignmnet 
 
-## Project setup
+### Project setup
 Please run to following commands before using the script
 ```python
 python -m pip install pandas 
